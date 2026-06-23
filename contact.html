@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — SWOO Tech Market</title>
+  <link rel="icon" href="./images/swoo-icon.png">
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --green: #3cb671;
+      --green-dark: #2a9058;
+      --green-deep: #1d6b40;
+      --green-glow: rgba(60, 182, 113, .18);
+      --ink: #1a2520;
+      --bg: #f3f8f5;
+      --card: #ffffff;
+      --muted: #6a7d73;
+      --border: #d6e8dc;
+      --success: #2d9c6a;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      background: #1a2520;
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--green);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .logo-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .logo-text span {
+      display: block;
+      color: rgba(255, 255, 255, .55);
+      font-weight: 500;
+      font-size: 12px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #1a2520 0%, #0f1e17 100%);
+      color: #fff;
+      padding: 64px 24px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(60, 182, 113, .28) 0%, transparent 70%);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(60, 182, 113, .15);
+      border: 1px solid rgba(60, 182, 113, .35);
+      border-radius: 999px;
+      padding: 5px 14px;
+      font-size: 12px;
+      color: var(--green);
+      letter-spacing: .06em;
+      font-weight: 600;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: .4
+      }
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.9rem, 4.5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.12;
+      position: relative;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--green);
+    }
+
+    .hero p {
+      margin-top: 14px;
+      color: rgba(255, 255, 255, .6);
+      font-size: 15px;
+      max-width: 460px;
+      margin-inline: auto;
+      position: relative;
+    }
+
+    /* ── LAYOUT ── */
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 52px 24px 80px;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 36px;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .page {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        order: -1;
+      }
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 40px;
+      box-shadow: 0 4px 24px rgba(26, 37, 32, .08);
+      border: 1px solid var(--border);
+    }
+
+    .form-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+
+    .form-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .field-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    @media (max-width: 500px) {
+      .field-group {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .field label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 11px 14px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--ink);
+      background: #f8fbf9;
+      transition: border-color .2s, box-shadow .2s;
+      outline: none;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px var(--green-glow);
+      background: #fff;
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .submit-btn:hover {
+      background: var(--green-dark);
+      transform: translateY(-1px);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .success-msg {
+      display: none;
+      background: #ecfdf5;
+      border: 1.5px solid #6ee7b7;
+      border-radius: 10px;
+      padding: 16px 20px;
+      color: var(--success);
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .info-card {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: 0 4px 24px rgba(26, 37, 32, .08);
+      border: 1px solid var(--border);
+    }
+
+    .info-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--ink);
+    }
+
+    /* stats */
+    .badge-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .badge {
+      flex: 1;
+      background: linear-gradient(135deg, #eaf6ef, #f3fbf6);
+      border: 1px solid #c5e8d3;
+      border-radius: 12px;
+      padding: 16px 10px;
+      text-align: center;
+    }
+
+    .b-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--green-dark);
+    }
+
+    .b-label {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    /* contact items */
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      margin-bottom: 16px;
+    }
+
+    .contact-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .ci-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #eaf6ef, #d4f0e0);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .ci-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .ci-value {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .ci-value a {
+      color: var(--green-dark);
+      text-decoration: none;
+    }
+
+    .ci-value a:hover {
+      text-decoration: underline;
+    }
+
+    /* hours */
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .hours-table td {
+      padding: 7px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hours-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .hours-table td:last-child {
+      text-align: right;
+      color: var(--muted);
+    }
+
+    .today {
+      font-weight: 700;
+      color: var(--green-dark) !important;
+    }
+
+    /* social */
+    .social-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 13px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity .2s, transform .15s;
+      color: #fff;
+    }
+
+    .social-btn:hover {
+      opacity: .88;
+      transform: translateY(-1px);
+    }
+
+    .s-instagram {
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    }
+
+    .s-telegram {
+      background: #229ED9;
+    }
+
+    .s-whatsapp {
+      background: #25D366;
+    }
+
+    .s-facebook {
+      background: #1877F2;
+    }
+
+    /* map */
+    .map-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      height: 175px;
+      background: #d8ede1;
+      position: relative;
+    }
+
+    .map-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .map-overlay span {
+      font-size: 30px;
+    }
+
+    .map-overlay p {
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+      max-width: 200px;
+    }
+
+    /* green accent divider on card top */
+    .card-accent {
+      height: 4px;
+      background: linear-gradient(90deg, var(--green), var(--green-dark));
+      border-radius: 18px 18px 0 0;
+      margin: -40px -40px 32px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">We're Online</div>
+    <h1>Get in <em>Touch</em></h1>
+    <p>Have a question, suggestion, or order inquiry? We’ll respond within 24 hours.</p>
+  </div>
+
+  <!-- MAIN -->
+  <div class="page">
+
+    <!-- FORM -->
+    <div class="card">
+      <div class="card-accent"></div>
+      <div class="form-title">Send a Message</div>
+      <div class="form-sub">Fill in all fields and click the send button.</div>
+
+      <div class="field-group">
+        <div class="field">
+          <label>First Name</label>
+          <input type="text" placeholder="John" id="fname" required />
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input type="text" placeholder="Smith" id="lname" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Email</label>
+        <input type="email" placeholder="your@email.com" id="email" required />
+      </div>
+
+      <div class="field">
+        <label>Phone Number</label>
+        <input type="number" placeholder="+1 234 567 890" id="phone" required />
+      </div>
+
+      <div class="field">
+        <label>Subject</label>
+        <select id="subject">
+          <option value="">Select...</option>
+          <option>Order Status</option>
+          <option>Product Inquiry</option>
+          <option>Return / Exchange</option>
+          <option>Warranty Support</option>
+          <option>Partnership Proposal</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Your Message</label>
+        <textarea placeholder="Write your message..." id="message"></textarea>
+      </div>
+
+      <button class="submit-btn" onclick="handleSubmit()">
+        <a href="./contact.html">
+          <span>Send Message</span>
+          <span>→</span>
+        </a>
+      </button>
+
+      <div class="success-msg" id="successMsg">
+        ✅ Your message has been received! We will contact you soon.
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <!-- stats -->
+      <div class="badge-row">
+        <div class="badge">
+          <div class="b-num">2340+</div>
+          <div class="b-label">Happy Customers</div>
+        </div>
+        <div class="badge">
+          <div class="b-num">24 Hours</div>
+          <div class="b-label">Response Time</div>
+        </div>
+        <div class="badge">
+          <div class="b-num">3 Years</div>
+          <div class="b-label">Experience</div>
+        </div>
+      </div>
+
+      <!-- contact info -->
+      <div class="info-card">
+        <h3>Contact Information</h3>
+
+        <div class="contact-item">
+          <div class="ci-icon"><img src="./contact-img/image.png" alt=""></div>
+          <div>
+            <div class="ci-label">Phone</div>
+            <div class="ci-value">
+              <a href="tel:+1 (800) 007-7075">+1 (800) 007-7075</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="ci-icon"><img src="./contact-img/email.png" alt=""></div>
+          <div>
+            <div class="ci-label">Email</div>
+            <div class="ci-value">
+              <a href="mailto:info@swoo.uz">info@swoo.uz</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="ci-icon"><img src="./contact-img/locate.png" alt=""></div>
+          <div>
+            <div class="ci-label">Location</div>
+            <div class="ci-value">United States</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- hours -->
+      <div class="info-card">
+        <h3>Business Hours</h3>
+        <table class="hours-table">
+          <tr>
+            <td>Monday – Friday</td>
+            <td id="weekday">09:00 – 18:00</td>
+          </tr>
+          <tr>
+            <td>Saturday</td>
+            <td id="saturday">10:00 – 16:00</td>
+          </tr>
+          <tr>
+            <td>Sunday</td>
+            <td id="sunday">Closed</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- map -->
+      <div class="info-card" style="padding:0;overflow:hidden;border-radius:18px;">
+        <div class="map-wrap">
+          <div class="map-overlay">
+            <span>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46830151.11795828!2d-119.8093025!3d44.24236485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2z0KHQvtC10LTQuNC90LXQvdC90YvQtSDQqNGC0LDRgtGLINCQ0LzQtdGA0LjQutC4!5e0!3m2!1sru!2s!4v1781939225743!5m2!1sru!2s"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </span>
+            <p>Add your Google Maps embed link here</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- social -->
+      <div class="info-card">
+        <h3>Social Media</h3>
+
+        <div class="social-row">
+          <a href="https://www.instagram.com/l7shrpv/" class="social-btn s-instagram">
+            <img class="w-5 h-5 inline-block align-middle" src="./contact-img/insta.png" alt="">
+            Instagram
+          </a>
+
+          <a href="https://t.me/shrpvw" class="social-btn s-telegram">
+            <img class="w-5 h-5 inline-block align-middle" src="./contact-img/tg.png" alt="">
+            Telegram
+          </a>
+
+          <a href="https://web.whatsapp.com/" class="social-btn s-whatsapp">
+            <img class="w-5 h-5 inline-block align-middle" src="./contact-img/what.png" alt="">
+            WhatsApp
+          </a>
+
+          <a href="https://www.facebook.com/..." class="social-btn s-facebook">
+            <img class="w-5 h-5 inline-block align-middle" src="./contact-img/facebook.png" alt="">
+            Facebook
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const day = new Date().getDay();
+    if (day === 0) document.getElementById('sunday').classList.add('today');
+    else if (day === 6) document.getElementById('saturday').classList.add('today');
+    else document.getElementById('weekday').classList.add('today');
+
+    function handleSubmit() {
+      const name = document.getElementById('fname').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if (!name || !email || !message) {
+        alert("Please fill in the Name, Email, and Message fields");
+        return;
+      }
+      document.getElementById('successMsg').style.display = 'block';
+      const btn = document.querySelector('.submit-btn');
+      btn.disabled = true;
+      btn.innerHTML = '<span>✅ Sent successfully!</span>';
+      btn.style.background = '#2a9058';
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+</body>
+
+</html>
