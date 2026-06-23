@@ -4,11 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopping Cart</title>
+  <title>Product</title>
   <link rel="icon" href="../images/swoo-icon.png">
   <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
 </head>
 
 <body>
@@ -47,20 +49,20 @@
         md:flex-row md:space-x-8 md:mt-0
         md:bg-transparent md:border-0 md:p-0 md:shadow-none md:rounded-none">
             <li>
-              <a href="./index.html"
+              <a href="../index.html"
                 class="block py-2 px-3 text-heading hover:text-green-500 bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0 duration-200"
                 aria-current="page">Homes</a>
             </li>
             <li>
-              <a href="./index.html"
+              <a href="#"
                 class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent hover:text-green-500 duration-200">Products</a>
             </li>
             <li>
-              <a href="./index.html"
+              <a href="#"
                 class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent hover:text-green-500 duration-200">Categories</a>
             </li>
             <li>
-              <a target="_blank" href="./contact.html"
+              <a target="_blank" href="../contact.html"
                 class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent hover:text-green-500 duration-200">Contact</a>
             </li>
           </ul>
@@ -113,54 +115,146 @@
   </header>
 
 
-  <div class="max-w-7xl mx-auto p-6">
-    <div class="grid lg:grid-cols-[1fr_320px] gap-6">
 
-      <!-- Products -->
-      <div class="cards space-y-5">
+  <!-- Main product section -->
+  <div class="flex flex-col max-w-[1200px] mx-auto p-[10px] lg:flex-row gap-6">
 
-      </div>
-
-      <!-- Order Summary -->
-      <div>
-        <div class="bg-white border-2 border-green-500 rounded-lg p-6 sticky top-6">
-          <h2 class="font-bold text-lg mb-6">
-            Order Summary
-          </h2>
-
-          <div class="space-y-4 text-sm">
-            <div class="flex justify-between">
-              <span class="text-gray-500">Sub Total:</span>
-              <span>$1,000.00</span>
-            </div>
-
-            <div class="flex justify-between">
-              <span class="text-gray-500">Shipping estimate:</span>
-              <span>$600.00</span>
-            </div>
-
-            <div class="flex justify-between">
-              <span class="text-gray-500">Tax estimate:</span>
-              <span>$137.00</span>
-            </div>
-
-            <hr>
-
-            <div class="flex justify-between font-bold text-lg">
-              <span>ORDER TOTAL:</span>
-              <span>$1,737.00</span>
-            </div>
-          </div>
-          <a target="_blank" href="./checkout.html">
-            <button
-              class="w-full cursor-pointer mt-6 bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold transition">
-              CHECKOUT
-            </button></a>
+    <!-- ① Image gallery -->
+    <div class="lg:w-5/12">
+      <div class="bg-white rounded-2xl p-5 shadow-sm relative">
+        <span
+          class="absolute top-4 left-4 badge-new text-white text-xs font-bold px-2.5 py-1 rounded-full z-10">NEW</span>
+        <img id="main-img" src="../12-pro-image/img1.png" alt="MacBook"
+          class="w-full h-72 md:h-80 object-cover rounded-xl transition-opacity duration-200" />
+        <!-- Thumbnails -->
+        <div class="flex gap-3 mt-4">
+          <img
+            onclick="changeImg(this,'https://optim.tildacdn.pro/tild3737-3131-4965-b633-653065656235/-/format/webp/image.png.webp')"
+            src="../12-pro-image/img1.png"
+            class="thumb active w-[88.80000305175781px] h-[88.80000305175781px] object-cover rounded-lg" />
+          <img onclick="changeImg(this,'https://api.idea.uz/storage/products/April2023/N1zQy10UdVKyYjLzAAqa.png')"
+            src="../12-pro-image/img2.png"
+            class="thumb w-[88.80000305175781px] h-[88.80000305175781px] object-cover rounded-lg" />
+          <img onclick="changeImg(this,'https://www.ahorraenbolboreta.com/cdn/product/648994e330cc2.jpg')"
+            src="../12-pro-image/img3.png"
+            class="thumb w-[88.80000305175781px] h-[88.80000305175781px] object-cover rounded-lg" />
         </div>
       </div>
-
     </div>
-  </div>
+
+    <!-- ② Product info -->
+    <div class="lg:w-4/12">
+      <div class="bg-white rounded-2xl p-6 shadow-sm">
+        <!-- Brand -->
+        <p class="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-2">Brand: <span
+            class="text-blue-600">Xiaomi</span></p>
+        <h1 class="text-xl font-bold text-gray-900 leading-snug">
+          Redmi Note 12 Pro + 5G</h1>
+        <!-- Stars -->
+        <div class="flex items-center gap-2 mt-2">
+          <span class="star">★★★★</span><span class="text-gray-200">★</span>
+          <span class="text-xs text-gray-400">(4 reviews)</span>
+        </div>
+        <!-- Price -->
+        <div class="mt-4 flex items-baseline gap-3">
+          <span class="text-3xl font-extrabold text-green-600">$399</span>
+        </div>
+        <p class="text-xs text-green-600 font-semibold mt-1 flex items-center gap-1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          FREE SHIPPING
+        </p>
+        <!-- Features -->
+        <ul class="mt-4 space-y-2 text-sm text-gray-600">
+          <li class="flex items-start gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-green-500 mt-1.5 shrink-0"></span>
+            50 MP Sony IMX766 kamera (OIS bilan) — sifatli foto va videolar uchun.
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-green-500 mt-1.5 shrink-0"></span>
+            6.67" AMOLED 120Hz ekran — ravon va yorqin tasvir
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-green-500 mt-1.5 shrink-0"></span>
+            5000 mAh batareya + 67W tezkor zaryadlash — uzoq ishlaydi va tez quvvat oladi.
+          </li>
+        </ul>
+        <!-- Stock -->
+        <div class="mt-4 flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block animate-pulse"></span>
+          <span class="text-sm text-green-600 font-semibold">In stock</span>
+        </div>
+        <!-- Trust badges -->
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="bg-gray-50 border border-gray-100 rounded-lg px-2.5 py-1 text-xs text-gray-500 font-medium">
+            Secure</span>
+          <span class="bg-gray-50 border border-gray-100 rounded-lg px-2.5 py-1 text-xs text-gray-500 font-medium">
+            PayPal</span>
+          <span class="bg-gray-50 border border-gray-100 rounded-lg px-2.5 py-1 text-xs text-gray-500 font-medium">
+            McAfee</span>
+          <span class="bg-gray-50 border border-gray-100 rounded-lg px-2.5 py-1 text-xs text-gray-500 font-medium">
+            Returns</span>
+        </div>
+        <!-- Qty + Cart -->
+        <div class="mt-5 flex items-center gap-3">
+          <div class="flex items-center gap-0 border border-gray-200 rounded-xl overflow-hidden bg-gray-50">
+            <button onclick="changeQty(-1)"
+              class="w-9 h-10 text-xl font-bold text-gray-600 hover:bg-gray-100 transition flex items-center justify-center">−</button>
+            <span id="qty" class="w-9 text-center font-bold text-gray-800 text-sm">1</span>
+            <button onclick="changeQty(1)"
+              class="w-9 h-10 text-xl font-bold text-gray-600 hover:bg-gray-100 transition flex items-center justify-center">+</button>
+          </div>
+          <button class="btn-green flex-1 flex items-center justify-center gap-2 text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 3h2l.4 2M7 13h10l4-10H5.4M7 13l-1.5 6h13M7 13H5.4M9 21a1 1 0 1 0 2 0M17 21a1 1 0 1 0 2 0" />
+            </svg>
+            ADD TO CART
+          </button>
+          <button
+            class="w-10 h-10 rounded-xl border border-gray-200 flex items-center justify-center text-gray-400 hover:text-red-400 hover:border-red-200 transition text-lg">♡</button>
+        </div>
+        <!-- SKU / Meta -->
+        <div class="mt-5 pt-4 border-t text-xs text-gray-400 space-y-1.5">
+          <p><span class="font-semibold text-gray-500">SKU:</span> A8FC02588</p>
+          <p><span class="font-semibold text-gray-500">CATEGORY:</span> Cell Phones & Tablets</p>
+          <p><span class="font-semibold text-gray-500">TAGS:</span> Laptop, Macbook, Computer, M1</p>
+        </div>
+        <!-- Share -->
+        <div class="mt-4 flex items-center gap-3 text-gray-400 text-sm">
+          <span class="text-xs font-semibold text-gray-500">Share:</span>
+          <button class="hover:text-blue-600 transition font-bold">𝕏</button>
+          <button class="hover:text-blue-500 transition font-bold">f</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ③ Order summary (right panel) -->
+    <div class="lg:w-3/12">
+      <div class="bg-white rounded-2xl shadow-sm p-5 lg:sticky lg:top-6">
+        <h3 class="font-bold text-gray-900 mb-4 text-base">Order Summary</h3>
+        <div class="space-y-2.5 text-sm">
+          <div class="flex justify-between text-gray-500"><span>Sub Total</span><span
+              class="font-semibold text-gray-800">$399.00</span></div>
+          <div class="flex justify-between text-gray-500"><span>Shipping estimate</span><span
+              class="font-semibold text-gray-800">$10.00</span></div>
+          <div class="flex justify-between text-gray-500"><span>Tax estimate</span><span
+              class="font-semibold text-gray-800">$37.00</span></div>
+          <div class="border-t pt-3 flex justify-between font-bold text-gray-900">
+            <span>ORDER TOTAL</span>
+            <span class="text-green-600 text-base">$446.00</span>
+          </div>
+        </div>
+        <a target="_blank" href="../cart.html">
+          <button class="btn-green w-full mt-4 text-sm py-3">CHECKOUT</button>
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /flex -->
 
   <footer class="border-t border-gray-200 pt-12 pb-6 px-6 md:px-16">
     <div class="max-w-7xl mx-auto">
@@ -362,29 +456,22 @@
   </footer>
 
   <script>
-    document.querySelectorAll('.plus').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const quantityEl = btn.parentElement.querySelector('.quantity');
-        let count = parseInt(quantityEl.textContent);
-        quantityEl.textContent = count + 1;
-      });
-    });
-
-    document.querySelectorAll('.minus').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const quantityEl = btn.parentElement.querySelector('.quantity');
-        let count = parseInt(quantityEl.textContent);
-
-        if (count > 1) {
-          quantityEl.textContent = count - 1;
-        }
-      });
-    });
+    function changeImg(el, src) {
+      document.getElementById('main-img').src = src;
+      document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+    }
+    function changeQty(d) {
+      const el = document.getElementById('qty');
+      let v = parseInt(el.textContent) + d;
+      if (v < 1) v = 1;
+      el.textContent = v;
+    }
   </script>
+
 
   <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
   <script src="../js/main.js"></script>
-  <script src="./card-js/card.js"></script>
 </body>
 
 </html>
