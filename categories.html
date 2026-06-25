@@ -15,6 +15,47 @@
   <link rel="stylesheet" href="./style.css">
 
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .card-hover {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .badge-sale {
+      background: linear-gradient(135deg, #ef4444, #f97316);
+    }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, #16a34a 0%, #15803d 60%, #166534 100%);
+    }
+
+    .card-hover {
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      border: 1px solid #e5e7eb;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(22, 163, 74, 0.2);
+      border-color: #16a34a;
+    }
+
+    .badge-sale {
+      background: linear-gradient(135deg, #ef4444, #f97316);
+    }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, #16a34a 0%, #15803d 60%, #166534 100%);
+    }
+  </style>
 </head>
 
 <body>
@@ -29,23 +70,14 @@
   </div>
 
   <header>
-    <div class="navbar bg-white fixed top-0 left-0 w-full bg-white z-50">
+    <div class="navbar bg-white fixed top-0 left-0 w-full bg-white z-50 ">
       <div class="max-w-[1200px] mx-auto flex flex-wrap items-center justify-between p-[10px]">
-        <a href="./index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src="./images/icon.png" class="h-12" alt="SWOO Logo" />
+        <a href="./product.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src="../images/icon.png" class="h-12" alt="SWOO Logo" />
           <span class="self-center text-xl text-heading font-semibold whitespace-nowrap">SWOO <br> TECH MARKET</span>
         </a>
 
         <div class="flex items-center md:order-2 space-x-3 rtl:space-x-reverse">
-
-          <button class="dark cursor-pointer group relative inline-flex items-center justify-center w-11 h-11
-  rounded-xl bg-white border border-emerald-200
-  text-emerald-600 shadow-sm
-  hover:bg-emerald-50 hover:shadow-md hover:border-emerald-400
-  focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2
-  transition-all duration-200 max-[768px]:hidden">
-            <span class="dark-icon text-[18px]">🌙</span>
-          </button>
 
           <button data-collapse-toggle="navbar-user" type="button" class="cursor-pointer group relative inline-flex items-center justify-center w-11 h-11 md:hidden
         rounded-xl bg-white border border-emerald-200
@@ -71,16 +103,16 @@
         md:flex-row md:space-x-8 md:mt-0
         md:bg-transparent md:border-0 md:p-0 md:shadow-none md:rounded-none">
             <li>
-              <a href="#"
+              <a href="./index.html"
                 class="block py-2 px-3 text-heading hover:text-green-500 bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0 duration-200"
                 aria-current="page">Homes</a>
             </li>
             <li>
-              <a href="#Products"
+              <a target="_blank" href="./product.html"
                 class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent hover:text-green-500 duration-200">Products</a>
             </li>
             <li>
-              <a href="#categories-2"
+              <a target="_blank" href="./categories.html"
                 class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent hover:text-green-500 duration-200">Categories</a>
             </li>
             <li>
@@ -92,8 +124,7 @@
 
       </div>
     </div>
-
-    <div class="green-header bg-green-500 mt-[90px] duration-400">
+    <div class="green-header bg-green-500 mt-[90px] duration-400 ">
       <div class="max-w-[1200px] mx-auto py-[20px] p-[10px]">
         <div class="flex items-center justify-between">
           <div class="relative">
@@ -108,45 +139,258 @@
 
             <input type="text" class="search block ps-9 pe-3 py-2.5 text-sm rounded-[20px] outline-none border-0"
               placeholder="Search">
-
             <div
               class="search-cards hidden absolute top-full left-0 z-50 w-full h-[200px] bg-white rounded-[10px] border border-gray-100 shadow-[0_20px_60px_rgba(0,0,0,0.15)] overflow-y-scroll">
             </div>
 
           </div>
-
-          <div class="font-semibold text-[18px] hover:text-white duration-200 max-[433px]:hidden">
-            <a href="">free shipping over $199</a>
+          <div class="font-semibold text-[18px] hover:text-white duration-200 max-[433px]:hidden"><a href="">free
+              shipping over $199</a>
           </div>
-
-          <div class="font-semibold text-[18px] hover:text-white duration-200 max-[568px]:hidden">
-            <a href="">30 days money back</a>
+          <div class="font-semibold text-[18px] hover:text-white duration-200 max-[568px]:hidden"><a href="">30 days
+              money back</a>
           </div>
-
-          <div class="font-semibold text-[18px] hover:text-white duration-200 max-[769px]:hidden">
-            <a href="">100% secure payment</a>
-          </div>
+          <div class="font-semibold text-[18px] hover:text-white duration-200 max-[769px]:hidden"><a href="">100%
+              secure
+              payment</a></div>
         </div>
       </div>
     </div>
-
-    <div class="max-w-[1200px] mx-auto p-[10px] flex items-center gap-[10px] py-[20px]">
-      <div class="font-bold text-gray-400 cursor-pointer py-[20px] hover:text-black duration-100">
-        <a href="./index.html">Home</a> /
+    <div class="max-w-[1200px] mx-auto p-[10px] flex items-center gap-[10px] py-[10px] max-[505px]:hidden">
+      <div class="font-bold text-gray-400 cursor-pointer py-[20px] duration-100 hover:text-green-600"><a
+          href="./index.html">Home</a> /
       </div>
-      <div class="font-bold text-gray-400 cursor-pointer py-[20px] hover:text-black duration-100">
-        <a href="">Shop</a> /
+      <div class="font-bold text-gray-400 cursor-pointer py-[20px] duration-100 hover:text-green-600"><a href="">Cell
+          Phones & Tablets</a> /
       </div>
-      <div class="font-bold text-gray-400 cursor-pointer py-[20px] hover:text-black duration-100">
-        <a href="">Top Cell Phones & Tablets</a>
-      </div>
+      <div class="font-bold text-gray-400 cursor-pointer py-[20px] duration-100 hover:text-green-600"><a
+          href="">Pineapple Macbook Pro 2022</a></div>
     </div>
   </header>
 
+  <!-- ===== PAGE TITLE ===== -->
+  <div class="max-w-[1200px] mx-auto p-[10px] px-4 mb-8" data-aos="fade-down">
+    <h1 class="text-3xl font-bold text-gray-900">All Categories</h1>
+    <p class="text-gray-500 mt-1">Browse our full range of tech products</p>
+  </div>
 
+  <!-- ===== FEATURED BANNER ===== -->
+  <div class="max-w-[1200px] mx-auto p-[10px] px-4 mb-10" data-aos="zoom-in">
+    <div
+      class="hero-gradient rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative">
+      <div class="absolute inset-0 opacity-10"
+        style="background-image: radial-gradient(circle at 80% 50%, white 1px, transparent 1px); background-size: 30px 30px;">
+      </div>
+      <div class="relative z-10">
+        <span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">New
+          Arrivals</span>
+        <h2 class="text-white text-3xl font-bold mt-3 mb-2">Top Deals This Week</h2>
+        <p class="text-green-100 text-sm max-w-sm">Explore the latest smartphones, laptops, audio gear and more – all
+          at unbeatable prices.</p>
+        <a href="#"
+          class="mt-5 inline-block bg-white text-green-700 font-semibold px-6 py-2.5 rounded-full hover:bg-green-50 transition-colors text-sm">Shop
+          Now →</a>
+      </div>
+      <div class="text-8xl select-none relative z-10"><img class="max-w-[250px] w-full" src="./page-categories/pc.png"
+          alt="pc"></div>
+    </div>
+  </div>
+
+  <!-- ===== CATEGORIES GRID ===== -->
+  <main class="max-w-[1200px] mx-auto p-[10px] px-4 pb-16">
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+
+      <!-- Card template: Smartphones -->
+      <a href="#"
+        class="bg-white rounded-2xl p-6 flex flex-col items-center text-center card-hover border border-gray-100 group relative"
+        data-aos-delay="0" data-aos="zoom-in">
+        <span
+          class="badge-sale text-white text-[10px] font-bold px-2 py-0.5 rounded-full absolute top-3 right-3 uppercase tracking-wide">Hot</span>
+        <div
+          class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mb-4 text-4xl group-hover:bg-green-100 transition-colors">
+          <img src="./page-categories/phone.png" alt="">
+        </div>
+        <h3 class="font-semibold text-gray-800 mb-1">Smartphones</h3>
+        <p class="text-xs text-gray-400">248 products</p>
+      </a>
+
+      <!-- Laptops -->
+      <a href="#"
+        class="bg-white rounded-2xl p-6 flex flex-col items-center text-center card-hover border border-gray-100 group"
+        data-aos-delay="50" data-aos="zoom-in">
+        <div
+          class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-4 text-4xl group-hover:bg-blue-100 transition-colors">
+          <img src="./page-categories/lpt.png" alt="">
+        </div>
+        <h3 class="font-semibold text-gray-800 mb-1">Laptops</h3>
+        <p class="text-xs text-gray-400">136 products</p>
+      </a>
+
+      <!-- Tablets -->
+      <a href="#"
+        class="bg-white rounded-2xl p-6 flex flex-col items-center text-center card-hover border border-gray-100 group"
+        data-aos-delay="100" data-aos="zoom-in">
+        <div
+          class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center mb-4 text-4xl group-hover:bg-purple-100 transition-colors">
+          <img src="./page-categories/ipad.png" alt="">
+        </div>
+        <h3 class="font-semibold text-gray-800 mb-1">Tablets</h3>
+        <p class="text-xs text-gray-400">89 products</p>
+      </a>
+
+      <!-- Headphones -->
+      <a href="#"
+        class="bg-white rounded-2xl p-6 flex flex-col items-center text-center card-hover border border-gray-100 group relative"
+        data-aos-delay="150" data-aos="zoom-in">
+        <span
+          class="bg-blue-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full absolute top-3 right-3 uppercase tracking-wide">New</span>
+        <div
+          class="w-16 h-16 bg-yellow-50 rounded-2xl flex items-center justify-center mb-4 text-4xl group-hover:bg-yellow-100 transition-colors">
+          <img src="./page-categories/hdp.png" alt="">
+        </div>
+        <h3 class="font-semibold text-gray-800 mb-1">Headphones</h3>
+        <p class="text-xs text-gray-400">174 products</p>
+      </a>
+
+      <!-- Speakers -->
+      <a href="#"
+        class="bg-white rounded-2xl p-6 flex flex-col items-center text-center card-hover border border-gray-100 group"
+        data-aos-delay="0" data-aos="zoom-in">
+        <div
+          class="w-16 h-16 bg-pink-50 rounded-2xl flex items-center justify-center mb-4 text-4xl group-hover:bg-pink-100 transition-colors">
+          <img src="./page-categories/spkr.png" alt="">
+        </div>
+        <h3 class="font-semibold text-gray-800 mb-1">Speakers</h3>
+        <p class="text-xs text-gray-400">63 products</p>
+      </a>
+
+      <!-- Smart Watches -->
+      <a href="#"
+        class="bg-white rounded-2xl p-6 flex flex-col items-center text-center card-hover border border-gray-100 group"
+        data-aos-delay="50" data-aos="zoom-in">
+        <div
+          class="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center mb-4 text-4xl group-hover:bg-orange-100 transition-colors">
+          <img src="./page-categories/smrw.png" alt="">
+        </div>
+        <h3 class="font-semibold text-gray-800 mb-1">Smart Watches</h3>
+        <p class="text-xs text-gray-400">112 products</p>
+      </a>
+
+      <!-- Cameras -->
+      <a href="#"
+        class="bg-white rounded-2xl p-6 flex flex-col items-center text-center card-hover border border-gray-100 group"
+        data-aos-delay="100" data-aos="zoom-in">
+        <div
+          class="w-16 h-16 bg-teal-50 rounded-2xl flex items-center justify-center mb-4 text-4xl group-hover:bg-teal-100 transition-colors">
+          <img src="./page-categories/camera.png" alt="">
+        </div>
+        <h3 class="font-semibold text-gray-800 mb-1">Cameras</h3>
+        <p class="text-xs text-gray-400">58 products</p>
+      </a>
+
+      <!-- Gaming -->
+      <a href="#"
+        class="bg-white rounded-2xl p-6 flex flex-col items-center text-center card-hover border border-gray-100 group relative"
+        data-aos-delay="150" data-aos="zoom-in">
+        <span
+          class="badge-sale text-white text-[10px] font-bold px-2 py-0.5 rounded-full absolute top-3 right-3 uppercase tracking-wide">Sale</span>
+        <div
+          class="w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center mb-4 text-4xl group-hover:bg-indigo-100 transition-colors">
+          <img src="./page-categories/gaming.png" alt="">
+        </div>
+        <h3 class="font-semibold text-gray-800 mb-1">Gaming</h3>
+        <p class="text-xs text-gray-400">201 products</p>
+      </a>
+
+      <!-- Accessories -->
+      <a href="#"
+        class="bg-white rounded-2xl p-6 flex flex-col items-center text-center card-hover border border-gray-100 group"
+        data-aos-delay="0" data-aos="zoom-in">
+        <div
+          class="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mb-4 text-4xl group-hover:bg-gray-200 transition-colors">
+          <img src="./page-categories/acs.png" alt="">
+        </div>
+        <h3 class="font-semibold text-gray-800 mb-1">Accessories</h3>
+        <p class="text-xs text-gray-400">420 products</p>
+      </a>
+
+      <!-- TVs -->
+      <a href="#"
+        class="bg-white rounded-2xl p-6 flex flex-col items-center text-center card-hover border border-gray-100 group"
+        data-aos-delay="50" data-aos="zoom-in">
+        <div
+          class="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mb-4 text-4xl group-hover:bg-red-100 transition-colors">
+          <img src="./page-categories/tv.png" alt="">
+        </div>
+        <h3 class="font-semibold text-gray-800 mb-1">TVs & Displays</h3>
+        <p class="text-xs text-gray-400">97 products</p>
+      </a>
+
+      <!-- Drones -->
+      <a href="#"
+        class="bg-white rounded-2xl p-6 flex flex-col items-center text-center card-hover border border-gray-100 group"
+        data-aos-delay="100" data-aos="zoom-in">
+        <div
+          class="w-16 h-16 bg-sky-50 rounded-2xl flex items-center justify-center mb-4 text-4xl group-hover:bg-sky-100 transition-colors">
+          <img src="./page-categories/drones.png" alt="">
+        </div>
+        <h3 class="font-semibold text-gray-800 mb-1">Drones</h3>
+        <p class="text-xs text-gray-400">34 products</p>
+      </a>
+
+      <!-- Smart Home -->
+      <a href="#"
+        class="bg-white rounded-2xl p-6 flex flex-col items-center text-center card-hover border border-gray-100 group relative"
+        data-aos-delay="150" data-aos="zoom-in">
+        <span
+          class="bg-blue-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full absolute top-3 right-3 uppercase tracking-wide">New</span>
+        <div
+          class="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center mb-4 text-4xl group-hover:bg-emerald-100 transition-colors">
+          <img src="./page-categories/smrhme.png" alt="">
+        </div>
+        <h3 class="font-semibold text-gray-800 mb-1">Smart Home</h3>
+        <p class="text-xs text-gray-400">78 products</p>
+      </a>
+
+    </div>
+
+    <!-- ===== POPULAR BRANDS ===== -->
+    <div class="mt-14 mb-6 flex items-center justify-between" data-aos="fade-up">
+      <h2 class="text-xl font-bold text-gray-800">Popular Brands</h2>
+    </div>
+    <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4">
+      <!-- Brand cards -->
+      <div class="bg-white rounded-xl p-4 flex items-center justify-center card-hover border border-gray-100 h-16"
+        data-aos="zoom-in" data-aos-delay="0">
+        <span class="font-bold text-gray-700 text-sm tracking-wide">Samsung</span>
+      </div>
+      <div class="bg-white rounded-xl p-4 flex items-center justify-center card-hover border border-gray-100 h-16"
+        data-aos="zoom-in" data-aos-delay="50">
+        <span class="font-bold text-gray-700 text-sm tracking-wide">Apple</span>
+      </div>
+      <div class="bg-white rounded-xl p-4 flex items-center justify-center card-hover border border-gray-100 h-16"
+        data-aos="zoom-in" data-aos-delay="100">
+        <span class="font-bold text-gray-700 text-sm tracking-wide">Xiaomi</span>
+      </div>
+      <div class="bg-white rounded-xl p-4 flex items-center justify-center card-hover border border-gray-100 h-16"
+        data-aos="zoom-in" data-aos-delay="150">
+        <span class="font-bold text-gray-700 text-sm tracking-wide">Sony</span>
+      </div>
+      <div class="bg-white rounded-xl p-4 flex items-center justify-center card-hover border border-gray-100 h-16"
+        data-aos="zoom-in" data-aos-delay="200">
+        <span class="font-bold text-gray-700 text-sm tracking-wide">Lenovo</span>
+      </div>
+      <div class="bg-white rounded-xl p-4 flex items-center justify-center card-hover border border-gray-100 h-16"
+        data-aos="zoom-in" data-aos-delay="250">
+        <span class="font-bold text-gray-700 text-sm tracking-wide">JBL</span>
+      </div>
+    </div>
+
+  </main>
 
   <footer class="border-t border-gray-200 pt-12 pb-6 px-6 md:px-16" data-aos="fade-up" data-aos-duration="1000">
-    <div class="max-w-7xl mx-auto">
+    <div class="max-w-[1200px] mx-auto p-[10px]">
 
       <!-- Top section -->
       <div class="grid grid-cols-1 md:grid-cols-5 gap-10 pb-10 border-b border-gray-200">
@@ -352,9 +596,9 @@
 
   <script>
     AOS.init({
-      duration: 1000,
+      duration: 700,
       once: true,
-      offset: 100,
+      offset: 50,
     });
   </script>
 </body>
