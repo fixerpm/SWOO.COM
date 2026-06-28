@@ -568,3 +568,55 @@ let loading = document.querySelector(".loading")
 window.addEventListener("load", function () {
   loading.classList.add("hidden")
 });
+
+const canvas = document.createElement('canvas');
+canvas.id = 'bg-canvas';
+canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;';
+document.body.appendChild(canvas);
+
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
+const pts = Array.from({ length: 35 }, () => ({
+  x: Math.random() * canvas.width,
+  y: Math.random() * canvas.height,
+  dx: (Math.random() - .5) * .4,
+  dy: (Math.random() - .5) * .4,
+  r: Math.random() * 1.8 + .5,
+  p: Math.random() * Math.PI * 2
+}));
+
+function drawBg() {
+  const isDark = document.body.classList.contains('dark');
+  const dot = isDark ? '74,222,128' : '34,197,94';
+  const dAlpha = isDark ? 0.35 : 0.22;
+  const lAlpha = isDark ? 0.1 : 0.07;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  pts.forEach((p, i) => {
+    p.p += 0.02;
+    const a = dAlpha + 0.1 * Math.sin(p.p);
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(${dot},${a})`;
+    ctx.fill();
+    for (let j = i + 1; j < pts.length; j++) {
+      const q = pts[j], d = Math.hypot(p.x - q.x, p.y - q.y);
+      if (d < 100) {
+        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
+        ctx.strokeStyle = `rgba(34,197,94,${lAlpha * (1 - d / 100)})`;
+        ctx.lineWidth = .5; ctx.stroke();
+      }
+    }
+    p.x += p.dx; p.y += p.dy;
+    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+  });
+  requestAnimationFrame(drawBg);
+}
+drawBg();

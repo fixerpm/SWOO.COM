@@ -14,10 +14,27 @@
   <link rel="stylesheet" href="./style.css">
 
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <style>
+    body.dark .navbar {
+      background: rgba(17, 24, 39, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .navbar {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+  </style>
 </head>
 
 <body>
-  <div class="loading fixed inset-0 bg-green-600 flex items-center justify-center z-[9999]">
+  <canvas id="bg-canvas"
+    style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.6;"></canvas>
+
+  <!-- <div class="loading fixed inset-0 bg-green-600 flex items-center justify-center z-[9999]">
     <div class="text-center">
 
       <div class="w-14 h-14 border-4 border-white border-t-transparent rounded-full animate-spin mx-auto"></div>
@@ -25,7 +42,7 @@
       <p class="text-white mt-4 text-lg font-semibold">Loading...</p>
 
     </div>
-  </div>
+  </div> -->
 
   <header>
     <div class="navbar bg-white fixed top-0 left-0 w-full bg-white z-50">
@@ -62,13 +79,12 @@
           </button>
         </div>
 
-        <div class="flex items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
-          <ul class="font-medium flex flex-col p-4 mt-4
-        bg-white/90 backdrop-blur-xl
-        border border-emerald-400
-        rounded-2xl shadow-lg
-        md:flex-row md:space-x-8 md:mt-0
-        md:bg-transparent md:border-0 md:p-0 md:shadow-none md:rounded-none">
+        <div class="hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
+          <ul class="font-medium flex flex-col w-full p-4 mt-4
+    border border-emerald-400
+    rounded-2xl shadow-lg
+    md:flex-row md:space-x-8 md:mt-0
+    md:bg-transparent md:border-0 md:p-0 md:shadow-none md:rounded-none">
             <li>
               <a href="#"
                 class="block py-2 px-3 text-heading hover:text-green-500 bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0 duration-200"
